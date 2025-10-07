@@ -5,7 +5,18 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
-import { LogOut, User } from "lucide-react";
+import { LogOut, User, Trash2 } from "lucide-react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const Settings = () => {
   const [email, setEmail] = useState("");
@@ -48,6 +59,25 @@ const Settings = () => {
     }
   };
 
+  const handleDeleteAccount = async () => {
+    try {
+      const { error } = await supabase.rpc('delete_user_account');
+      if (error) throw error;
+
+      toast({
+        title: "Account Deleted",
+        description: "Your account has been permanently deleted.",
+      });
+      navigate("/auth");
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.message || "Failed to delete account. Please try again.",
+        variant: "destructive",
+      });
+    }
+  };
+
   return (
     <Layout>
       <div className="max-w-2xl space-y-8">
@@ -83,15 +113,49 @@ const Settings = () => {
               Manage your account session
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <Button
-              variant="destructive"
-              onClick={handleLogout}
-              className="w-full sm:w-auto"
-            >
-              <LogOut className="w-4 h-4 mr-2" />
-              Logout
-            </Button>
+          <CardContent className="space-y-4">
+            <div>
+              <Button
+                variant="destructive"
+                onClick={handleLogout}
+                className="w-full sm:w-auto"
+              >
+                <LogOut className="w-4 h-4 mr-2" />
+                Logout
+              </Button>
+            </div>
+            
+            <div className="pt-4 border-t border-destructive/20">
+              <AlertDialog>
+                <AlertDialogTrigger asChild>
+                  <Button
+                    variant="outline"
+                    className="w-full sm:w-auto border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                  >
+                    <Trash2 className="w-4 h-4 mr-2" />
+                    Delete Account
+                  </Button>
+                </AlertDialogTrigger>
+                <AlertDialogContent>
+                  <AlertDialogHeader>
+                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                    <AlertDialogDescription>
+                      This action cannot be undone. This will permanently delete your
+                      account and remove all your data including projects and tasks from our servers.
+                    </AlertDialogDescription>
+                  </AlertDialogHeader>
+                  <AlertDialogFooter>
+                    <AlertDialogCancel>Cancel</AlertDialogCancel>
+                    <AlertDialogAction
+                      onClick={handleDeleteAccount}
+                      className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                    >
+                      Delete Account
+                    </AlertDialogAction>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialog>
+            </div>
           </CardContent>
         </Card>
       </div>
