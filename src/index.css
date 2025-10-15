@@ -26,10 +26,10 @@ All colors MUST be HSL.
     --secondary-foreground: 240 10% 10%;
 
     --muted: 240 5% 96%;
-    --muted-foreground: 240 4% 46%;
+    --muted-foreground: 240 8% 38%;
 
     --accent: 260 100% 97%;
-    --accent-foreground: 250 95% 60%;
+    --accent-foreground: 250 95% 48%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
@@ -66,10 +66,10 @@ All colors MUST be HSL.
     --secondary-foreground: 240 5% 95%;
 
     --muted: 240 10% 15%;
-    --muted-foreground: 240 5% 65%;
+    --muted-foreground: 240 5% 70%;
 
     --accent: 240 10% 15%;
-    --accent-foreground: 250 95% 60%;
+    --accent-foreground: 250 95% 68%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
