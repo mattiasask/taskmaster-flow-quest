@@ -1,29 +1,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, Zap, Target, TrendingUp, ArrowRight, Sparkles } from "lucide-react";
+import { CheckCircle2, Zap, Target, TrendingUp, ArrowRight, Sparkles, ListChecks, Users, Clock } from "lucide-react";
 
 const Index = () => {
-  const features = [
-    {
-      icon: Target,
-      title: "Crystal Clear Goals",
-      description: "Transform vague ideas into actionable projects with laser-focused clarity",
-      gradient: "from-chart-1 to-chart-3"
-    },
-    {
-      icon: Zap,
-      title: "Lightning Fast",
-      description: "Create tasks in seconds, update in real-time, and never miss a beat",
-      gradient: "from-chart-3 to-chart-5"
-    },
-    {
-      icon: TrendingUp,
-      title: "Track Progress",
-      description: "Watch your projects evolve from idea to completion with visual tracking",
-      gradient: "from-chart-5 to-chart-2"
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-muted/20 to-background">
       {/* Navigation */}
@@ -75,40 +54,128 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Features Section - Creative Layout */}
       <section className="container mx-auto px-6 pb-32">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Everything You Need
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Built for individuals and teams who want to get things done without the complexity
-            </p>
+        <div className="max-w-7xl mx-auto">
+          {/* Main Feature - Large Diagonal */}
+          <div className="relative mb-16 animate-fade-in">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-chart-1/10 to-transparent rounded-[3rem] transform -rotate-1" />
+            <div className="relative bg-card border border-border rounded-[3rem] p-12 md:p-16 overflow-hidden shadow-xl">
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="space-y-6">
+                  <div className="inline-flex p-5 rounded-2xl bg-gradient-to-br from-primary to-chart-1 shadow-2xl">
+                    <Target className="w-10 h-10 text-primary-foreground" />
+                  </div>
+                  <h2 className="text-5xl font-bold tracking-tight leading-tight">
+                    Projects That
+                    <br />
+                    <span className="bg-gradient-to-r from-primary to-chart-1 bg-clip-text text-transparent">
+                      Make Sense
+                    </span>
+                  </h2>
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    Create unlimited projects with custom workflows. Organize your tasks exactly the way your brain works, not how some app thinks you should work.
+                  </p>
+                </div>
+                <div className="relative">
+                  <div className="space-y-4">
+                    <div className="bg-muted/50 backdrop-blur-sm rounded-xl p-6 border border-border/50 transform translate-x-8">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-3 h-3 rounded-full bg-chart-1" />
+                        <span className="font-semibold">Website Redesign</span>
+                      </div>
+                      <div className="text-sm text-muted-foreground">12 tasks • 60% complete</div>
+                    </div>
+                    <div className="bg-muted/50 backdrop-blur-sm rounded-xl p-6 border border-border/50">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-3 h-3 rounded-full bg-chart-3" />
+                        <span className="font-semibold">Marketing Campaign</span>
+                      </div>
+                      <div className="text-sm text-muted-foreground">8 tasks • 25% complete</div>
+                    </div>
+                    <div className="bg-muted/50 backdrop-blur-sm rounded-xl p-6 border border-border/50 transform translate-x-8">
+                      <div className="flex items-center gap-3 mb-2">
+                        <div className="w-3 h-3 rounded-full bg-chart-5" />
+                        <span className="font-semibold">Product Launch</span>
+                      </div>
+                      <div className="text-sm text-muted-foreground">15 tasks • 80% complete</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-gradient-to-br from-primary/20 to-chart-1/20 rounded-full blur-3xl" />
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div
-                key={index}
-                className="group relative p-8 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl animate-fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className={`inline-flex p-4 rounded-xl bg-gradient-to-br ${feature.gradient} mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <feature.icon className="w-7 h-7 text-primary-foreground" />
-                </div>
-                
-                <h3 className="text-2xl font-bold mb-3 tracking-tight">
-                  {feature.title}
+          {/* Two Column Asymmetric */}
+          <div className="grid md:grid-cols-5 gap-8 mb-16">
+            {/* Left - Tall */}
+            <div className="md:col-span-2 animate-fade-in" style={{ animationDelay: '100ms' }}>
+              <div className="h-full bg-gradient-to-br from-chart-3 to-chart-5 rounded-3xl p-10 text-primary-foreground relative overflow-hidden shadow-xl">
+                <Zap className="w-16 h-16 mb-6 opacity-90" />
+                <h3 className="text-3xl font-bold mb-4 tracking-tight">
+                  Real-Time
+                  <br />
+                  Updates
                 </h3>
-                
-                <p className="text-muted-foreground leading-relaxed">
-                  {feature.description}
+                <p className="text-primary-foreground/90 text-lg leading-relaxed mb-6">
+                  See changes instantly. No refresh needed. Your team stays in perfect sync.
                 </p>
-
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="flex items-center gap-2 text-sm font-medium">
+                  <Clock className="w-4 h-4" />
+                  <span>Syncs in milliseconds</span>
+                </div>
+                <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-primary-foreground/10 rounded-full blur-2xl" />
               </div>
-            ))}
+            </div>
+
+            {/* Right - Stacked */}
+            <div className="md:col-span-3 space-y-8">
+              <div className="bg-card border border-border rounded-3xl p-10 shadow-lg animate-fade-in hover:shadow-2xl transition-shadow" style={{ animationDelay: '200ms' }}>
+                <div className="flex items-start gap-6">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-chart-1 to-chart-3 shadow-lg flex-shrink-0">
+                    <ListChecks className="w-8 h-8 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3 tracking-tight">Smart Task Management</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      Drag, drop, and organize. Set priorities, deadlines, and track every detail without the overwhelm.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-card border border-border rounded-3xl p-10 shadow-lg animate-fade-in hover:shadow-2xl transition-shadow" style={{ animationDelay: '300ms' }}>
+                <div className="flex items-start gap-6">
+                  <div className="p-4 rounded-xl bg-gradient-to-br from-chart-5 to-chart-2 shadow-lg flex-shrink-0">
+                    <TrendingUp className="w-8 h-8 text-primary-foreground" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold mb-3 tracking-tight">Visual Progress Tracking</h3>
+                    <p className="text-muted-foreground text-lg leading-relaxed">
+                      Beautiful charts and insights show you exactly where you stand. Celebrate wins, spot bottlenecks.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom - Wide Feature */}
+          <div className="relative animate-fade-in" style={{ animationDelay: '400ms' }}>
+            <div className="bg-gradient-to-r from-muted via-accent to-muted rounded-3xl p-12 border border-border shadow-lg">
+              <div className="max-w-3xl mx-auto text-center space-y-6">
+                <div className="inline-flex p-5 rounded-2xl bg-card border border-border shadow-lg">
+                  <Users className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-4xl font-bold tracking-tight">
+                  Built for Teams, Perfect for Individuals
+                </h3>
+                <p className="text-xl text-muted-foreground leading-relaxed">
+                  Whether you're flying solo or managing a crew, TaskMaster scales with you. Simple enough for anyone, powerful enough for everything.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
