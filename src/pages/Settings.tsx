@@ -80,84 +80,102 @@ const Settings = () => {
 
   return (
     <Layout>
-      <div className="max-w-2xl space-y-8">
-        <div>
-          <h1 className="text-4xl font-bold mb-2">Settings</h1>
-          <p className="text-muted-foreground">
-            Manage your account settings and preferences
+      <div className="max-w-3xl space-y-10">
+        <div className="space-y-2">
+          <h1 className="text-4xl font-bold tracking-tight">Settings</h1>
+          <p className="text-lg text-muted-foreground">
+            Manage your account and preferences
           </p>
         </div>
 
-        <Card className="shadow-card">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <User className="w-5 h-5" />
-              User Profile
-            </CardTitle>
-            <CardDescription>
-              Your account information
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <label className="text-sm font-medium">Email Address</label>
-              <p className="text-lg">{email}</p>
-            </div>
-          </CardContent>
-        </Card>
+        <div className="space-y-6">
+          <Card className="shadow-lg">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <User className="w-5 h-5 text-primary" />
+                </div>
+                <div>
+                  <CardTitle className="text-xl">Account Information</CardTitle>
+                  <CardDescription>
+                    Your account details
+                  </CardDescription>
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-muted-foreground">Email Address</label>
+                <p className="text-lg font-medium">{email}</p>
+              </div>
+            </CardContent>
+          </Card>
 
-        <Card className="shadow-card border-destructive/20">
-          <CardHeader>
-            <CardTitle className="text-destructive">Account Actions</CardTitle>
-            <CardDescription>
-              Manage your account session
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <Button
-                variant="destructive"
-                onClick={handleLogout}
-                className="w-full sm:w-auto"
-              >
-                <LogOut className="w-4 h-4 mr-2" />
-                Logout
-              </Button>
-            </div>
-            
-            <div className="pt-4 border-t border-destructive/20">
-              <AlertDialog>
-                <AlertDialogTrigger asChild>
+          <Card className="shadow-lg border-destructive/30">
+            <CardHeader>
+              <CardTitle className="text-destructive text-xl">Danger Zone</CardTitle>
+              <CardDescription>
+                Irreversible actions for your account
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="p-4 rounded-lg border border-border bg-muted/30">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div className="space-y-1">
+                    <p className="font-medium">Sign Out</p>
+                    <p className="text-sm text-muted-foreground">Sign out from your current session</p>
+                  </div>
                   <Button
                     variant="outline"
-                    className="w-full sm:w-auto border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                    onClick={handleLogout}
+                    className="sm:w-auto"
                   >
-                    <Trash2 className="w-4 h-4 mr-2" />
-                    Delete Account
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Logout
                   </Button>
-                </AlertDialogTrigger>
-                <AlertDialogContent>
-                  <AlertDialogHeader>
-                    <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                    <AlertDialogDescription>
-                      This action cannot be undone. This will permanently delete your
-                      account and remove all your data including projects and tasks from our servers.
-                    </AlertDialogDescription>
-                  </AlertDialogHeader>
-                  <AlertDialogFooter>
-                    <AlertDialogCancel>Cancel</AlertDialogCancel>
-                    <AlertDialogAction
-                      onClick={handleDeleteAccount}
-                      className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
-                    >
-                      Delete Account
-                    </AlertDialogAction>
-                  </AlertDialogFooter>
-                </AlertDialogContent>
-              </AlertDialog>
-            </div>
-          </CardContent>
-        </Card>
+                </div>
+              </div>
+              
+              <div className="p-4 rounded-lg border border-destructive/30 bg-destructive/5">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div className="space-y-1">
+                    <p className="font-medium text-destructive">Delete Account</p>
+                    <p className="text-sm text-muted-foreground">Permanently delete your account and all data</p>
+                  </div>
+                  <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                      <Button
+                        variant="destructive"
+                        className="sm:w-auto"
+                      >
+                        <Trash2 className="w-4 h-4 mr-2" />
+                        Delete Account
+                      </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                        <AlertDialogDescription>
+                          This action cannot be undone. This will permanently delete your
+                          account and remove all your data including projects and tasks from our servers.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction
+                          onClick={handleDeleteAccount}
+                          className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+                        >
+                          Delete Account
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </Layout>
   );

@@ -82,31 +82,33 @@ const Auth = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-accent/30 to-background p-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-muted/20 to-background p-4">
       <div className="w-full max-w-md space-y-8">
-        <div className="text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow mb-4 shadow-elegant transition-transform hover:scale-105">
-            <CheckCircle2 className="w-8 h-8 text-primary-foreground" />
+        <div className="text-center space-y-6">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-gradient-to-br from-primary to-primary-glow shadow-elegant">
+            <CheckCircle2 className="w-10 h-10 text-primary-foreground" />
           </div>
-          <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-primary-glow bg-clip-text text-transparent">
-            TaskMaster
-          </h1>
-          <p className="mt-2 text-muted-foreground">
-            A simple way to manage your projects and tasks
-          </p>
+          <div className="space-y-2">
+            <h1 className="text-5xl font-bold tracking-tight">
+              TaskMaster
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              Organize your work, amplify your productivity
+            </p>
+          </div>
         </div>
 
-        <Card className="border-border shadow-card">
-          <CardHeader>
-            <CardTitle>Welcome</CardTitle>
+        <Card className="border shadow-lg">
+          <CardHeader className="space-y-1">
+            <CardTitle className="text-2xl">Welcome back</CardTitle>
             <CardDescription>
-              Sign in to your account or create a new one
+              Enter your credentials to access your account
             </CardDescription>
           </CardHeader>
           <CardContent>
             <Tabs defaultValue="login" className="w-full">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="login">Login</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-2 mb-6">
+                <TabsTrigger value="login">Sign In</TabsTrigger>
                 <TabsTrigger value="signup">Sign Up</TabsTrigger>
               </TabsList>
               
@@ -138,12 +140,12 @@ const Auth = () => {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 transition-opacity"
+                    className="w-full h-11 text-base"
                     disabled={loading}
                   >
                     {loading ? (
                       <>
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
                         Signing in...
                       </>
                     ) : (
@@ -182,12 +184,12 @@ const Auth = () => {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 transition-opacity"
+                    className="w-full h-11 text-base"
                     disabled={loading}
                   >
                     {loading ? (
                       <>
-                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                        <Loader2 className="w-5 h-5 mr-2 animate-spin" />
                         Creating account...
                       </>
                     ) : (

@@ -60,21 +60,21 @@ const Dashboard = () => {
 
   return (
     <Layout>
-      <div className="space-y-8">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-4xl font-bold mb-2">Your Dashboard</h1>
-            <p className="text-muted-foreground">
-              Manage your projects and tasks in one place
+      <div className="space-y-10">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="space-y-1">
+            <h1 className="text-4xl font-bold tracking-tight">Dashboard</h1>
+            <p className="text-lg text-muted-foreground">
+              Manage your projects and tasks
             </p>
           </div>
           <Button
             size="lg"
             onClick={() => setDialogOpen(true)}
-            className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 transition-opacity shadow-elegant"
+            className="shadow-lg hover:shadow-xl transition-all duration-300"
           >
             <Plus className="w-5 h-5 mr-2" />
-            Create New Project
+            New Project
           </Button>
         </div>
 
@@ -83,19 +83,22 @@ const Dashboard = () => {
             <Loader2 className="w-8 h-8 animate-spin text-primary" />
           </div>
         ) : projects.length === 0 ? (
-          <Card className="border-dashed border-2 shadow-card">
-            <CardContent className="flex flex-col items-center justify-center py-12">
-              <FolderOpen className="w-16 h-16 text-muted-foreground mb-4" />
-              <h3 className="text-xl font-semibold mb-2">No projects yet</h3>
-              <p className="text-muted-foreground mb-4 text-center max-w-md">
-                Get started by creating your first project and organize your tasks efficiently
+          <Card className="border-dashed border-2 shadow-lg">
+            <CardContent className="flex flex-col items-center justify-center py-16 px-4">
+              <div className="w-20 h-20 rounded-full bg-muted/50 flex items-center justify-center mb-6">
+                <FolderOpen className="w-10 h-10 text-muted-foreground" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-3">No projects yet</h3>
+              <p className="text-muted-foreground mb-6 text-center max-w-md text-base">
+                Create your first project to start organizing your tasks and boost your productivity
               </p>
               <Button
+                size="lg"
                 onClick={() => setDialogOpen(true)}
-                className="bg-gradient-to-r from-primary to-primary-glow hover:opacity-90 transition-opacity"
+                className="shadow-lg"
               >
-                <Plus className="w-4 h-4 mr-2" />
-                Create Your First Project
+                <Plus className="w-5 h-5 mr-2" />
+                Create First Project
               </Button>
             </CardContent>
           </Card>
@@ -104,13 +107,14 @@ const Dashboard = () => {
             {projects.map((project) => (
               <Card
                 key={project.id}
-                className="cursor-pointer hover:shadow-elegant transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-card to-accent/20"
+                className="group cursor-pointer border shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden"
                 onClick={() => handleProjectClick(project.id)}
               >
-                <CardHeader>
-                  <CardTitle className="text-xl">{project.title}</CardTitle>
-                  <CardDescription className="line-clamp-2">
-                    {project.description || "No description"}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <CardHeader className="relative">
+                  <CardTitle className="text-xl font-semibold">{project.title}</CardTitle>
+                  <CardDescription className="line-clamp-2 text-base">
+                    {project.description || "No description provided"}
                   </CardDescription>
                 </CardHeader>
               </Card>
