@@ -84,7 +84,7 @@ const Auth = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background via-accent/30 to-background p-4">
       <div className="w-full max-w-md space-y-8">
-        <div className="text-center animate-fade-in">
+        <div className="text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-glow mb-4 shadow-elegant transition-transform hover:scale-105">
             <CheckCircle2 className="w-8 h-8 text-primary-foreground" />
           </div>
