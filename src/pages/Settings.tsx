@@ -96,7 +96,7 @@ const Settings = () => {
                   <User className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <CardTitle className="text-xl">Account Information</CardTitle>
+                  <h2 className="font-semibold tracking-tight text-xl">Account Information</h2>
                   <CardDescription>
                     Your account details
                   </CardDescription>
