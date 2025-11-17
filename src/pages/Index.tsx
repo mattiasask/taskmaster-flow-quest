@@ -21,6 +21,7 @@ const Index = () => {
       </nav>
 
       {/* Hero Section */}
+      <main>
       <section className="container mx-auto px-6 pt-20 pb-32">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-sm font-medium text-primary animate-fade-in">
@@ -205,6 +206,7 @@ const Index = () => {
           </div>
         </div>
       </section>
+      </main>
 
       {/* Footer */}
       <footer className="border-t border-border/40 bg-card/60 backdrop-blur-xl">
