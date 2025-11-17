@@ -1,1 +1,10 @@
 project_id = "vxpwuckskzqxiigpilnf"
+
+[functions.get-squidler-problems]
+verify_jwt = false
+
+[functions.resolve-squidler-problem]
+verify_jwt = false
+
+[functions.dismiss-squidler-problem]
+verify_jwt = false
