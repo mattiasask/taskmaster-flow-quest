@@ -110,10 +110,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      delete_user_account: {
-        Args: Record<PropertyKey, never>
-        Returns: undefined
-      }
+      delete_user_account: { Args: never; Returns: undefined }
     }
     Enums: {
       task_status: "To Do" | "In Progress" | "Done"
