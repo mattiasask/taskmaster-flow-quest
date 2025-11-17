@@ -100,7 +100,7 @@ const Auth = () => {
 
         <Card className="border shadow-lg">
           <CardHeader className="space-y-1">
-            <CardTitle className="text-2xl">Welcome back</CardTitle>
+            <h2 className="font-semibold tracking-tight text-2xl">Welcome back</h2>
             <CardDescription>
               Enter your credentials to access your account
             </CardDescription>

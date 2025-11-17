@@ -176,7 +176,7 @@ export const TaskDialog = ({ open, onOpenChange, onSuccess, projectId, task }: T
             <div className="space-y-2">
               <Label htmlFor="status">Status</Label>
               <Select value={status} onValueChange={(value: any) => setStatus(value)}>
-                <SelectTrigger>
+                <SelectTrigger aria-label="Select task status">
                   <SelectValue placeholder="Select status" />
                 </SelectTrigger>
                 <SelectContent>
